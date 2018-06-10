@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<!--   带边框线的
+    <onedirection.cn.one.BorderTextView
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:id="@+id/index"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        />-->
+
+    <TextView
+            android:id="@+id/index"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+
+        />
+
+    <TextView
+        android:id="@+id/src"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        />
+
+    <TextView
+        android:id="@+id/dst"
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        />
+</LinearLayout>
