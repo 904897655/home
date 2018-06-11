@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/text_view_border"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/et_nums"
+        android:textColor="@color/color_black"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:lines="1"
+        android:maxLength="9"
+        android:singleLine="true"/>
+    </LinearLayout>
+    <GridView
+        android:id="@+id/gv_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:gravity="center"
+        android:verticalSpacing="10dp"></GridView>
+
+
+
+
+
+</LinearLayout>
