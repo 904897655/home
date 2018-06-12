@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
                     Intent intent=new Intent(this,MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }else {
 
                     Toast.makeText(this,"密码错误",Toast.LENGTH_LONG).show();
