@@ -1,50 +1,60 @@
 package onedirection.cn.one;
 
-import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowDBActivity extends Activity {
+public class ShowDBActivity extends AppCompatActivity {
     SQLiteDatabase db;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showdb);
-        ListView show = (ListView)findViewById(R.id.show);
-        db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString()+ "/translate.db3", null);
+        ListView show = (ListView) findViewById(R.id.show);
+        db = SQLiteDatabase.openOrCreateDatabase(this.getFilesDir().toString() + "/translate.db3", null);
         TranslateAdapter adapter = new TranslateAdapter(ShowDBActivity.this, R.layout.line);
         List<Translate> list = queryAll();
-        for(Translate translate:list)
-                adapter.add(translate);
+        for (Translate translate : list)
+            adapter.add(translate);
         show.setAdapter(adapter);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    finish();
+            }
+        });
     }
 
-    public List<Translate> queryAll(){
+    public List<Translate> queryAll() {
 
         try {
             Cursor cursor = db.rawQuery("select * from history", null);
             List<Translate> list = new ArrayList<Translate>();
-            while (cursor.moveToNext())
-            {
+            while (cursor.moveToNext()) {
                 String src = cursor.getString(1);
                 String dst = cursor.getString(2);
-                list.add(new Translate(list.size()+1+"",src,dst));
-                Log.v("debug","-----------------------------------"+"index："+list.size()+1+"src："+src+"\t"+"dst: "+dst+"-----------------------------------");
+                list.add(new Translate(list.size() + 1 + "", src, dst));
+                Log.v("debug", "-----------------------------------" + "index：" + list.size() + 1 + "src：" + src + "\t" + "dst: " + dst + "-----------------------------------");
             }
-            return  list;
-        }catch (SQLiteException se){
+            return list;
+        } catch (SQLiteException se) {
             db.execSQL("create table history(index integer"
                     + " primary key autoincrement,"
                     + " src varchar(255),"
@@ -73,9 +83,9 @@ public class ShowDBActivity extends Activity {
             TextView srcText = (TextView) view.findViewById(R.id.src);
             TextView dstText = (TextView) view.findViewById(R.id.dst);
 
-            index.setText(user.getIndex());
-            srcText.setText(user.getSrc());
-            dstText.setText(user.getDst());
+            index.setText("序列号：" + user.getIndex());
+            srcText.setText("源文本：" + user.getSrc());
+            dstText.setText("译文本：" + user.getDst());
 
             return view;
         }

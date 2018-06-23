@@ -10,6 +10,6 @@
     <color name="color_black">#000000</color>
     <color name="color_night">#202020</color>
     <color name="color_night_bg">#303030</color>
-    <color name="colorMovie">#009688</color>
+    <color name="theme_color">#009688</color>
     <color name="color_text_grey">#8c8c8c</color>
 </resources>

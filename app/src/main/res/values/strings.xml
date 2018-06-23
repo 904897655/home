@@ -5,4 +5,7 @@
 
     <string name="text_key_cancel_no">清空</string>
     <string name="text_key_ok">确定</string>
+    <string name="text_hint_content">请输入要翻译的内容</string>
+    <string name="text_translate_net">网络翻译</string>
+    <string name="text_translate_loc">本地翻译</string>
 </resources>

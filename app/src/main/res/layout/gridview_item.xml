@@ -11,9 +11,9 @@
         android:layout_height="50dp"
         android:textSize="26sp"
         android:gravity="center"
-        android:textColor="@color/color_black"
+        android:background="@drawable/btn_bg_blue"
+        android:textColor="@color/color_white"
         android:id="@+id/tv_num"
-        android:background="@drawable/shape_corner"
         />
 
 </LinearLayout>
